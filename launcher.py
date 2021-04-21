@@ -4,7 +4,6 @@ import subprocess
 import os
 
 
-
 class Authorization:
     def __init__(self):
         self.window = tk.Tk()
@@ -13,8 +12,8 @@ class Authorization:
         self.window.attributes('-fullscreen', True)
         self.window.geometry('1920x1200')
         self.fullScreenState = False
-        self.window.bind("<F11>", self.toggleFullScreen)
-        self.window.bind("<Escape>", self.quitFullScreen)
+        self.window.bind("<F11>", self.toggle_full_screen)
+        self.window.bind("<Escape>", self.quit_full_screen)
         self.username = tk.Label(self.window, text="User", background="black", fg="green", font=("Calibri", 25))
         self.username.place(x=800, y=498, anchor='center')
         self.username_entry = tk.StringVar()
@@ -29,11 +28,11 @@ class Authorization:
         self.login.place(x=930, y=650, anchor='center')
         self.window.mainloop()
 
-    def toggleFullScreen(self, event):
+    def toggle_full_screen(self, event):
         self.fullScreenState = not self.fullScreenState
         self.window.attributes("-fullscreen", self.fullScreenState)
 
-    def quitFullScreen(self, event):
+    def quit_full_screen(self, event):
         self.fullScreenState = False
         self.window.attributes("-fullscreen", self.fullScreenState)
 

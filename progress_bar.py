@@ -1,7 +1,8 @@
 from tkinter import *
 import argparse
 import tkinter.ttk as ttk
-import time, threading
+import time
+import threading
 import subprocess
 import os
 
@@ -21,6 +22,7 @@ pb.start()
 pwd = os.path.abspath(os.getcwd())
 database = os.path.join(pwd, 'database.py')
 
+
 def progress():
     for i in range(20):
         pb['value'] += i
@@ -34,6 +36,7 @@ def quit_window():
     command = ['python', database, '-p', password]
     subprocess.Popen(command)
     root.quit()
+
 
 threading.Thread(target=progress).start()
 root.mainloop()
