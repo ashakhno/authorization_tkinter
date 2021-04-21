@@ -3,6 +3,7 @@ import argparse
 import tkinter.ttk as ttk
 import time, threading
 import subprocess
+import os
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('-p', '--password', default='', help='Password of a team')
@@ -10,16 +11,15 @@ args = vars(parser.parse_args())
 password = args['password']
 
 root = Tk()
-root["bg"] = "gray"
+root["bg"] = "black"
 root.attributes('-fullscreen', True)
-root.geometry('1920x1200')
+root.geometry('1920x1080')
 pb = ttk.Progressbar(root, orient="horizontal", length=200, mode="determinate")
 pb.place(x=830, y=600, )
 pb.start()
 
-
-database = r'C:\Users\ashakhnov\PycharmProjects\terminal_for_InTeam\database.py'
-
+pwd = os.path.abspath(os.getcwd())
+database = os.path.join(pwd, 'database.py')
 
 def progress():
     for i in range(20):
