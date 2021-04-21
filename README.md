@@ -1,1 +1,1 @@
-# authorization_tkinter
+# Requirements: tkinter, subprocess, time, argparse, threading
